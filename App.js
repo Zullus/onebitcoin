@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
 import CurrentPrice from './src/components/CurrentPrice';
 import HistoryGraphic from './src/components/HistoryGraphic';
 import QuotationList from './src/components/QuotationList';
-import QuotationItens from './src/components/QuotationList/QuotationItens';
 
 function addZero(number){
 
@@ -50,8 +49,8 @@ async function getListCoins(url){
   })
 
   let data = queryCoinsList.reverse();
-console.log(data)
-  //return data;
+//console.log(data)
+  return data;
 
 }
 
@@ -80,8 +79,8 @@ async function getPriceCoinsGraphic(url) {
     return selectListQuotationsG[key];
   });
   let dataG = queryCoinsListG;
-  console.log(dataG)
-//  return dataG;
+//  console.log(dataG)
+  return dataG;
 }
 
 export default function App() {
@@ -120,11 +119,9 @@ export default function App() {
          />
          <CurrentPrice />
 
-         <HistoryGraphic />
+         <HistoryGraphic infoDataGraphic={coinsGraphicList} />
 
-         <QuotationList />
-
-         <QuotationItens/>
+         <QuotationList filterDay={updateDay} listTransactions={coinsList}  />
 
     </SafeAreaView>
   );

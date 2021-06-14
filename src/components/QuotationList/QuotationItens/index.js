@@ -3,7 +3,7 @@ import {View, Image, Text } from 'react-native';
 
 import styles from './style'
 
-export default function QuotationItens(){
+export default function QuotationItens(props){
     return(
         <View style={styles.mainContent}>
             
@@ -16,7 +16,7 @@ export default function QuotationItens(){
                         source={require("../../../img/bitcoin.png")}
                     />
                     
-                    <Text style={styles.dayCotation}>07/05/2021</Text>
+                    <Text style={styles.dayCotation}>{props.data}</Text>
                 
                 </View>
             
@@ -24,7 +24,7 @@ export default function QuotationItens(){
 
             <View style={styles.contextRigth}>
                 
-                <Text style={styles.price}>$ 53331.052</Text>
+                <Text style={styles.price}>${props.valor}</Text>
             
             </View>
             
