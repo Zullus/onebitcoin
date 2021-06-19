@@ -7,3 +7,6 @@
 
 yarn add react-native-chart-kit
 yarn add react-native-svg
+
+## Spash Screen
+https://docs.expo.io/guides/splash-screens/
