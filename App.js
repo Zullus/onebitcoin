@@ -89,6 +89,12 @@ export default function App() {
   const [coinsGraphicList, setCoinsGraphicList] = useState([0]); //o gráfico não pode começar vazio
   const [days, setDays] = useState(30);
   const [updateData, setUpdateData] = useState(true);
+  const [price, setPrice] = useState(0);
+
+  function priceCotation(){
+
+    setPrice(coinsGraphicList.pop());
+  }
 
   function updateDay(number){
     setDays(number);
@@ -104,6 +110,8 @@ export default function App() {
       setCoinsGraphicList(dataG)
     });
 
+    priceCotation();
+
     if(updateData){
       setUpdateData(false);
     }
@@ -117,7 +125,7 @@ export default function App() {
          barStyle="light-content"
          style="auto" 
          />
-         <CurrentPrice />
+         <CurrentPrice lastCotation={price} />
 
          <HistoryGraphic infoDataGraphic={coinsGraphicList} />
 
